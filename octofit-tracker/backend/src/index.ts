@@ -40,7 +40,7 @@ mongoose
     console.log(`Connected to MongoDB at ${MONGODB_URI}`)
     app.listen(PORT, HOST, () => {
       console.log(`Backend listening on http://${HOST}:${PORT}`)
-      if (process.env.CODESPACE_NAME) {
+      if (process.env.CODESPACE_Alito) {
         console.log(`Codespaces API base URL: ${API_BASE_URL}`)
       }
     })
