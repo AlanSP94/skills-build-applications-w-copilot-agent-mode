@@ -10,9 +10,10 @@ function Activities() {
     const loadActivities = async () => {
       setLoading(true)
       setError(null)
+      const endpoint = '/api/activities/'
 
       try {
-        const data = await fetchResource('activities')
+        const data = await fetchResource(endpoint)
         setActivities(data)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unable to load activities')

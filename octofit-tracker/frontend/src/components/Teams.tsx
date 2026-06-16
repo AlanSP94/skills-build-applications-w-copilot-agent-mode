@@ -10,9 +10,10 @@ function Teams() {
     const loadTeams = async () => {
       setLoading(true)
       setError(null)
+      const endpoint = '/api/teams/'
 
       try {
-        const data = await fetchResource('teams')
+        const data = await fetchResource(endpoint)
         setTeams(data)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unable to load teams')

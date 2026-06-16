@@ -10,9 +10,10 @@ function Users() {
     const loadUsers = async () => {
       setLoading(true)
       setError(null)
+      const endpoint = '/api/users/'
 
       try {
-        const data = await fetchResource('users')
+        const data = await fetchResource(endpoint)
         setUsers(data)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unable to load users')

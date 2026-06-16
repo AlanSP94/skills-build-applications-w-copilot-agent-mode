@@ -7,6 +7,14 @@ export const API_BASE_URL = CODESPACE_NAME
 export const isCodespaceConfigured = Boolean(CODESPACE_NAME)
 
 export function getApiUrl(resource: string) {
+  if (resource.startsWith('/api/')) {
+    return `${API_BASE_URL}${resource.slice(4)}`
+  }
+
+  if (resource.startsWith('/')) {
+    return `${API_BASE_URL}${resource}`
+  }
+
   return `${API_BASE_URL}/${resource}`
 }
 

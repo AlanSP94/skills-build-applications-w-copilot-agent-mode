@@ -10,9 +10,10 @@ function Leaderboard() {
     const loadLeaderboard = async () => {
       setLoading(true)
       setError(null)
+      const endpoint = '/api/leaderboard/'
 
       try {
-        const data = await fetchResource('leaderboard')
+        const data = await fetchResource(endpoint)
         setEntries(data)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unable to load leaderboard')

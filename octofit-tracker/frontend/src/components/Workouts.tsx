@@ -10,9 +10,10 @@ function Workouts() {
     const loadWorkouts = async () => {
       setLoading(true)
       setError(null)
+      const endpoint = '/api/workouts/'
 
       try {
-        const data = await fetchResource('workouts')
+        const data = await fetchResource(endpoint)
         setWorkouts(data)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unable to load workouts')
