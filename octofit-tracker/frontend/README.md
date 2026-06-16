@@ -71,3 +71,15 @@ export default defineConfig([
   },
 ])
 ```
+
+## Codespace environment configuration
+
+The frontend reads `VITE_CODESPACE_NAME` from Vite environment variables.
+
+- Add `VITE_CODESPACE_NAME` to `.env.local` or Vite environment configuration.
+- Example: `VITE_CODESPACE_NAME=your-codespace-name`
+- When defined, the frontend will request backend data from:
+  `https://${VITE_CODESPACE_NAME}-8000.app.github.dev/api/[resource]`
+- When undefined, the app falls back to `http://localhost:8000/api` to avoid invalid URLs.
+
+See `./.env.local.example` for a template.
