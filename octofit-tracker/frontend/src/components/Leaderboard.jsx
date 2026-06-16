@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { fetchResource } from '../lib/api'
+import { fetchResource, CODESPACE_NAME } from '../lib/api'
 
 function Leaderboard() {
   const [entries, setEntries] = useState([])
@@ -10,7 +10,7 @@ function Leaderboard() {
     const loadLeaderboard = async () => {
       setLoading(true)
       setError(null)
-      const endpoint = '/api/leaderboard/'
+      const endpoint = CODESPACE_NAME ? `https://${CODESPACE_NAME}-8000.app.github.dev/api/leaderboard` : '/api/leaderboard/'
 
       try {
         const data = await fetchResource(endpoint)

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { fetchResource } from '../lib/api'
+import { fetchResource, CODESPACE_NAME } from '../lib/api'
 
 function Workouts() {
   const [workouts, setWorkouts] = useState([])
@@ -10,7 +10,7 @@ function Workouts() {
     const loadWorkouts = async () => {
       setLoading(true)
       setError(null)
-      const endpoint = '/api/workouts/'
+      const endpoint = CODESPACE_NAME ? `https://${CODESPACE_NAME}-8000.app.github.dev/api/workouts` : '/api/workouts/'
 
       try {
         const data = await fetchResource(endpoint)

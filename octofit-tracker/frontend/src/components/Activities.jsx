@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { fetchResource } from '../lib/api'
+import { fetchResource, CODESPACE_NAME } from '../lib/api'
 
 function Activities() {
   const [activities, setActivities] = useState([])
@@ -10,7 +10,7 @@ function Activities() {
     const loadActivities = async () => {
       setLoading(true)
       setError(null)
-      const endpoint = '/api/activities/'
+      const endpoint = CODESPACE_NAME ? `https://${CODESPACE_NAME}-8000.app.github.dev/api/activities` : '/api/activities/'
 
       try {
         const data = await fetchResource(endpoint)
